@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="MessageCompose"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:schemaLocation="http://schemas.microsoft.com/office/appforoffice/1.1 OfficeAppManifest.xsd">
+  <Id>4c9a5c91-43d3-46dc-b1f5-ff9279f831a0</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Your Name</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="Add BCC Email"/>
+  <Description DefaultValue="Adds a BCC email to the draft"/>
+  <IconUrl DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+  <SupportUrl DefaultValue="https://psa.pulseway.com/gateway.aspx?enc=IYCh7c6DCCwnEj2Nr4KQVpZAmup8elQPX54654CcSMUXeWJUHcZi/Z1Rg5NkZ8%2bKn7XUPdg9PVmGolLeA53gPg%3d%3d"/>
+
+  <Hosts>
+    <Host Name="Mailbox"/>
+  </Hosts>
+
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="Mailbox"/>
+    </Sets>
+  </Requirements>
+
+  <FormSettings>
+    <Form xsi:type="ItemCompose">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.html"/>
+        <RequestedHeight>100</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
+  <Permissions>ReadWriteItem</Permissions>
+
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
+  </Rule>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.0">
+    <Requirements>
+      <bt:Sets DefaultMinVersion="1.8">
+        <bt:Set Name="Mailbox"/>
+      </bt:Sets>
+    </Requirements>
+
+    <Hosts>
+      <Host xsi:type="Mailbox">
+        <FunctionFile Url="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.js"/>
+
+        <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+          <OfficeTab id="Message">
+            <Group id="msgComposeGroup">
+              <Label resid="groupLabel"/>
+              <Control xsi:type="Button" id="addBccButton">
+                <Label resid="buttonLabel"/>
+                <Supertip>
+                  <Title resid="buttonLabel"/>
+                  <Description resid="buttonDescription"/>
+                </Supertip>
+                <Icon>
+                  <bt:Image size="16" resid="icon16"/>
+                  <bt:Image size="32" resid="icon32"/>
+                  <bt:Image size="80" resid="icon80"/>
+                </Icon>
+                <Action xsi:type="ExecuteFunction">
+                  <FunctionName>addBccAddress</FunctionName>
+                </Action>
+              </Control>
+            </Group>
+          </OfficeTab>
+        </ExtensionPoint>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+        <bt:Image id="icon32" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+        <bt:Image id="icon80" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="taskpaneUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.html"/>
+        <bt:Url id="functionFileUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.js"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="groupLabel" DefaultValue="BCC Tools"/>
+        <bt:String id="buttonLabel" DefaultValue="Add BCC"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="buttonDescription" DefaultValue="Automatically adds your Salesforce logging address to BCC."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
