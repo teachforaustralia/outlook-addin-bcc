@@ -11,3 +11,8 @@ function addBccAddress(event) {
     }
   );
 }
+
+// Required: make function globally accessible
+if (typeof window !== "undefined") {
+  window.addBccAddress = addBccAddress;
+}
