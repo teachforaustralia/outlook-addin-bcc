@@ -1,22 +1,33 @@
+<Resources>
+  <bt:Images>
+    <!-- icons here -->
+  </bt:Images>
+  <bt:Urls>
+    <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
+  </bt:Urls>
+</Resources>
+
 <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-    <OfficeTab id="TabDefault">
-        <Group id="msgComposeGroup">
-            <Label resid="groupLabel"/>
-            <Control xsi:type="Button" id="msgComposeButton">
-                <Label resid="buttonLabel"/>
-                <Supertip>
-                    <Title resid="buttonTitle"/>
-                    <Description resid="buttonDescription"/>
-                </Supertip>
-                <Icon>
-                    <bt:Image size="16" resid="icon16"/>
-                    <bt:Image size="32" resid="icon32"/>
-                    <bt:Image size="80" resid="icon80"/>
-                </Icon>
-                <Action xsi:type="ExecuteFunction">
-                    <FunctionName>addBccAddress</FunctionName>
-                </Action>
-            </Control>
-        </Group>
-    </OfficeTab>
+  <OfficeTab id="TabDefault">
+    <Group id="msgComposeGroup">
+      <Label resid="groupLabel"/>
+      <Control xsi:type="Button" id="msgComposeButton">
+        <Label resid="buttonLabel"/>
+        <Supertip>
+          <Title resid="buttonTitle"/>
+          <Description resid="buttonDescription"/>
+        </Supertip>
+        <Icon>
+          <bt:Image size="16" resid="icon16"/>
+          <bt:Image size="32" resid="icon32"/>
+          <bt:Image size="80" resid="icon80"/>
+        </Icon>
+        <Action xsi:type="ExecuteFunction">
+          <FunctionName>addBccAddress</FunctionName>
+        </Action>
+      </Control>
+    </Group>
+  </OfficeTab>
 </ExtensionPoint>
+
+<FunctionFile resid="commandsUrl"/>
