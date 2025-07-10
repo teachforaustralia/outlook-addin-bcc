@@ -24,18 +24,6 @@
     </Sets>
   </Requirements>
 
-  <Resources>
-    <bt:Images>
-      <bt:Image id="icon16" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
-      <bt:Image id="icon32" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
-      <bt:Image id="icon80" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
-    </bt:Images>
-    <bt:Urls>
-      <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
-      <bt:Url id="taskpaneHtml" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.html"/>
-    </bt:Urls>
-  </Resources>
-
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
                     xsi:type="VersionOverridesV1_0">
     <Requirements>
@@ -59,6 +47,7 @@
                   <bt:Image size="16" resid="icon16"/>
                   <bt:Image size="32" resid="icon32"/>
                   <bt:Image size="80" resid="icon80"/>
+                  <bt:Image size="128" resid="icon128"/>
                 </Icon>
                 <Action xsi:type="ExecuteFunction">
                   <FunctionName>addBccAddress</FunctionName>
@@ -66,23 +55,26 @@
               </Control>
             </Group>
           </OfficeTab>
-          <!-- ✅ Required for ExecuteFunction -->
-          <Runtime resid="taskpaneHtml"/>
           <FunctionFile resid="commandsUrl"/>
         </ExtensionPoint>
       </Host>
     </Hosts>
     <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+        <bt:Image id="icon32" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+        <bt:Image id="icon80" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+        <bt:Image id="icon128" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
+      </bt:Urls>
       <bt:Strings>
         <bt:String id="groupLabel" DefaultValue="Auto BCC"/>
         <bt:String id="buttonLabel" DefaultValue="Add BCC"/>
         <bt:String id="buttonTitle" DefaultValue="Add BCC Address"/>
         <bt:String id="buttonDescription" DefaultValue="Automatically adds a BCC address to your email."/>
       </bt:Strings>
-      <bt:Urls>
-        <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
-        <bt:Url id="taskpaneHtml" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.html"/>
-      </bt:Urls>
     </Resources>
   </VersionOverrides>
 </OfficeApp>
