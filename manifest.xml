@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.5"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
@@ -24,42 +24,41 @@
     </Sets>
   </Requirements>
 
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
-                    xsi:type="VersionOverridesV1_0">
-    <Requirements>
+  <ov:VersionOverrides xsi:type="ov:VersionOverridesV1_0">
+    <ov:Requirements>
       <bt:Sets DefaultMinVersion="1.3">
         <bt:Set Name="Mailbox"/>
       </bt:Sets>
-    </Requirements>
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-          <OfficeTab id="TabDefault">
-            <Group id="msgComposeGroup">
-              <Label resid="groupLabel"/>
-              <Control xsi:type="Button" id="msgComposeButton">
-                <Label resid="buttonLabel"/>
-                <Supertip>
-                  <Title resid="buttonTitle"/>
-                  <Description resid="buttonDescription"/>
-                </Supertip>
-                <Icon>
+    </ov:Requirements>
+    <ov:Hosts>
+      <ov:Host xsi:type="ov:MailHost">
+        <ov:ExtensionPoint xsi:type="MessageComposeCommandSurface">
+          <ov:OfficeTab id="TabDefault">
+            <ov:Group id="msgComposeGroup">
+              <ov:Label resid="groupLabel"/>
+              <ov:Control xsi:type="Button" id="msgComposeButton">
+                <ov:Label resid="buttonLabel"/>
+                <ov:Supertip>
+                  <ov:Title resid="buttonTitle"/>
+                  <ov:Description resid="buttonDescription"/>
+                </ov:Supertip>
+                <ov:Icon>
                   <bt:Image size="16" resid="icon16"/>
                   <bt:Image size="32" resid="icon32"/>
                   <bt:Image size="80" resid="icon80"/>
                   <bt:Image size="128" resid="icon128"/>
-                </Icon>
-                <Action xsi:type="ExecuteFunction">
-                  <FunctionName>addBccAddress</FunctionName>
-                </Action>
-              </Control>
-            </Group>
-          </OfficeTab>
-          <FunctionFile resid="commandsUrl"/>
-        </ExtensionPoint>
-      </Host>
-    </Hosts>
-    <Resources>
+                </ov:Icon>
+                <ov:Action xsi:type="ExecuteFunction">
+                  <ov:FunctionName>addBccAddress</ov:FunctionName>
+                </ov:Action>
+              </ov:Control>
+            </ov:Group>
+          </ov:OfficeTab>
+          <ov:FunctionFile resid="commandsUrl"/>
+        </ov:ExtensionPoint>
+      </ov:Host>
+    </ov:Hosts>
+    <ov:Resources>
       <bt:Images>
         <bt:Image id="icon16" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
         <bt:Image id="icon32" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/bcc.png"/>
@@ -75,6 +74,6 @@
         <bt:String id="buttonTitle" DefaultValue="Add BCC Address"/>
         <bt:String id="buttonDescription" DefaultValue="Automatically adds a BCC address to your email."/>
       </bt:Strings>
-    </Resources>
-  </VersionOverrides>
+    </ov:Resources>
+  </ov:VersionOverrides>
 </OfficeApp>
