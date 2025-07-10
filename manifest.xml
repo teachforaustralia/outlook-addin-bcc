@@ -32,6 +32,7 @@
     </bt:Images>
     <bt:Urls>
       <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
+      <bt:Url id="taskpaneUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.js"/>
     </bt:Urls>
   </Resources>
 
@@ -65,7 +66,11 @@
               </Control>
             </Group>
           </OfficeTab>
+
+          <!-- ✅ These lines are now included -->
+          <Runtime resid="taskpaneUrl" />
           <FunctionFile resid="commandsUrl"/>
+
         </ExtensionPoint>
       </Host>
     </Hosts>
@@ -76,6 +81,10 @@
         <bt:String id="buttonTitle" DefaultValue="Add BCC Address"/>
         <bt:String id="buttonDescription" DefaultValue="Automatically adds a BCC address to your email."/>
       </bt:Strings>
+      <bt:Urls>
+        <bt:Url id="commandsUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/commands.html"/>
+        <bt:Url id="taskpaneUrl" DefaultValue="https://teachforaustralia.github.io/outlook-addin-bcc/taskpane.js"/>
+      </bt:Urls>
     </Resources>
   </VersionOverrides>
 </OfficeApp>
