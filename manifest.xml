@@ -5,7 +5,7 @@
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="MailApp">
 
-  <Id>00000000-0000-0000-0000-000000000000</Id>
+  <Id>61d3e0d4-5d1b-4fd4-b40d-c1c5c3db4e9b</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Your Company</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
